@@ -323,7 +323,6 @@ export class MarketplaceContract {
       .payTo(buyerAddress, {
         [toUnit(txDatum.nftPolicy, txDatum.nftName)]: 1n,
       })
-      .attachScript(this.validatorInstance)
       .addSigner(buyerCredential.hash) // 🔥 Use key hash directly
       .commit()
       .then((tx) => tx.sign().commit())
